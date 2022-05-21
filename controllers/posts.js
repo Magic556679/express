@@ -26,7 +26,7 @@ const posts = {
 			handleError(res, err)
 		}
   },
-	async deleteAllPosts(res){
+	async deleteAllPosts(req, res){
     await Posts.deleteMany({})
 		const allPosts = await Posts.find();
 		handleSuccess(res, allPosts);
