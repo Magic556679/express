@@ -1,0 +1,134 @@
+{
+	"info": {
+		"_postman_id": "d9c22dca-13ca-4781-a240-4d270d30f8bb",
+		"name": "posts Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "13706340"
+	},
+	"item": [
+		{
+			"name": "取得全部",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://enigmatic-bastion-04469.herokuapp.com/posts",
+					"protocol": "https",
+					"host": [
+						"enigmatic-bastion-04469",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "新增",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n   \"name\": \"小姊姊\",\n   \"content\": \"價格公道\",\n   \"tags\": \"3c產品\",\n   \"type\": \"group\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://enigmatic-bastion-04469.herokuapp.com/posts",
+					"protocol": "https",
+					"host": [
+						"enigmatic-bastion-04469",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "刪除全部",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://enigmatic-bastion-04469.herokuapp.com/posts",
+					"protocol": "https",
+					"host": [
+						"enigmatic-bastion-04469",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "刪除單筆",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://enigmatic-bastion-04469.herokuapp.com/posts/62890f3c904ae8844f2a19d1",
+					"protocol": "https",
+					"host": [
+						"enigmatic-bastion-04469",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"posts",
+						"62890f3c904ae8844f2a19d1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "編輯單筆",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"content\": \"測試\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://enigmatic-bastion-04469.herokuapp.com/posts/62890f94904ae8844f2a19d6",
+					"protocol": "https",
+					"host": [
+						"enigmatic-bastion-04469",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"posts",
+						"62890f94904ae8844f2a19d6"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
