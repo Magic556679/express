@@ -6,13 +6,9 @@ const handleError = (res, err) => {
     message = "欄位輸入錯誤，或無此ID";
   }
   res.status(400).send({
-    status: true,
+    status: false,
     message
   })
-  // res.write(JSON.stringify({
-  //   "status": "false",
-  //   message
-  // }))
   res.end();
 }
 module.exports = handleError;

@@ -4,6 +4,7 @@ const Posts = require('../models/postsModel');
 
 const posts = {
   async getPosts(req, res) {
+		console.log(req.query);
     const allPosts = await Posts.find();
 		handleSuccess(res, allPosts);
   },
@@ -21,10 +22,41 @@ const posts = {
 			} else {
 				handleError(res);
 			}
-		} catch (error){
-			handleError(res, error)
+		} catch (err){
+			handleError(res, err)
 		}
   },
+	async deleteAllPosts(res){
+    await Posts.deleteMany({})
+		const allPosts = await Posts.find();
+		handleSuccess(res, allPosts);
+  },
+	async deleteByIdPosts(req, res) {
+    try {
+			const paramsId = req.params.id;
+			await Posts.findByIdAndDelete(paramsId)	
+			const posts = await Posts.find();
+			handleSuccess(res, posts);
+		} catch (err) {
+			handleError(res, err);
+		}
+  },
+	async patchPosts(req, res) {
+    try {
+			const paramsId = req.params.id;
+			const findId = await Posts.find({'_id': paramsId});
+			const data = req.body
+			if(data.content){
+				await Posts.findByIdAndUpdate(findId, data);
+				const posts = await Posts.find({})
+				handleSuccess(res, posts);
+			} else {
+				handleError(res);
+			}
+			} catch (err) {
+				handleError(res, err);
+		}
+  }
 }
 
 module.exports = posts;
