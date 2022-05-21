@@ -1,22 +1,12 @@
 var express = require('express');
-const posts = require('../models/postsModel');
 var router = express.Router();
-const Post = require('../models/postsModel')
+const PostsControllers = require('../controllers/posts');
 
-/* GET users listing. */
-router.get('/', async function(req, res, next) {
-  const post = await Post.find();
-  res.status(200).json({
-    post
-  })
-});
 
-router.post('/', async function(req, res, next) {
-  const data = req.body
-  const newPosts = await Post.create(data)
-  res.status(200).json({
-    data: newPosts
-  })
-});
+router.get('/', PostsControllers.getPosts);
+
+// 不需要加上 chunk，express 已經處理好
+router.post('/', PostsControllers.createdPosts);
+
 
 module.exports = router;
